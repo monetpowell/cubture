@@ -1,5 +1,6 @@
 package com.cubture.backend.income;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.UUID;
@@ -30,11 +31,16 @@ public class IncomeService {
         this.incomeRepository = incomeRepository;
     }
 
-    // Retrieves all income records from the database
-    // Spring Data JPA translates this method into the appropriate SQL query
-    // (e.g. SELECT * FROM income) behind the scenes
-    public List<Income> getAllIncome() {
-        return incomeRepository.findAll();
+    public List<Income> getAllIncome(Integer month, Integer year) {
+
+        if (month == null || year == null) {
+            return incomeRepository.findAll();
+        }
+
+        LocalDate startDate = LocalDate.of(year, month, 1);
+        LocalDate endDate = startDate.withDayOfMonth(startDate.lengthOfMonth());
+
+        return incomeRepository.findByDateReceivedBetween(startDate, endDate);
     }
 
     // Retrieves a single income record by its unique identifier

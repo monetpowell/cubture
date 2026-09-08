@@ -1,0 +1,49 @@
+.layout {
+  display: flex;
+  min-height: 100vh;
+}
+
+.sidebar {
+  width: auto;
+  margin-right: 30px;
+  margin-left: 10px;
+}
+
+.logo {
+  width: 220px;
+  height: auto;
+  display: block;
+  margin: 0 auto 40px;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #444;
+  padding: 14px 18px;
+  border-radius: 14px;
+  font-weight: 600;
+}
+
+/* .sidebar a:hover {
+  background: #f3efff;
+} */
+
+.sidebar a.active {
+  background: #f3efff;
+  color: #6f3df4;
+}
+
+.main-content {
+  flex: 1;
+}
+
+.topbar {
+  padding: 40px;
+  background: white;
+}

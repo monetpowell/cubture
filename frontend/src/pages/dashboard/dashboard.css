@@ -1,0 +1,71 @@
+.dashboard-header {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 40px;
+}
+
+.dashboard-content {
+  width: 100%;
+}
+
+.dashboard-content h1 {
+  margin: 0;
+  font-size: 48px;
+  font-weight: 600;
+  color: #5b21b6;
+  margin-bottom: 30px;
+}
+
+.dashboard-content p {
+  margin: 12px 0 40px;
+  color: #777;
+  font-size: 22px;
+  font-weight: 500;
+}
+
+.summary-cards {
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 24px;
+  width: 100%;
+}
+
+.summary-link {
+  flex: 1;
+  text-decoration: none;
+  color: inherit;
+}
+
+.summary-cards > * {
+  flex: 1;
+}
+
+.add-income-button {
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
+  color: white;
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: 14px;
+  font-weight: 600;
+}
+
+.dashboard-month-selector {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.dashboard-month-selector label {
+  font-weight: 600;
+}
+
+.dashboard-month-selector select {
+  padding: 0.6rem 1rem;
+  border: 1px solid #d9d9d9;
+  border-radius: 8px;
+  background: white;
+  font-size: 1rem;
+  cursor: pointer;
+}

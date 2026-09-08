@@ -1,0 +1,14 @@
+.topbar {
+  padding: 40px;
+  background: white;
+}
+
+.topbar h2 {
+  margin: 0;
+  font-size: 2.2rem;
+}
+
+.topbar p {
+  margin-top: 8px;
+  color: #777;
+}

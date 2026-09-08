@@ -1,0 +1,50 @@
+.income-page {
+  padding: 40px 30px;
+}
+
+.income-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.income-header h1 {
+  font-size: 40px;
+  color: #5b21b6;
+  margin-bottom: 8px;
+  font-weight: 650;
+}
+
+.income-header p {
+  color: #777;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.income-actions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.add-income-button {
+  background: #7c3aed;
+  color: white;
+  text-decoration: none;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
+.add-income-button:hover {
+  background: #6d28d9;
+}
+
+.income-table-wrapper {
+  max-width: 1100px;
+  margin: 0 auto;
+  background: white;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+}

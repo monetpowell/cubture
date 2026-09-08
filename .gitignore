@@ -10,3 +10,10 @@ dist/
 
 # macOS
 .DS_Store
+
+# Java
+backend/target/
+
+# IDE
+.vscode/
+.idea/

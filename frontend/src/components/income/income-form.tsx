@@ -1,11 +1,11 @@
-import "./form.css";
+import "./income-form.css";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 import { createIncome, getIncome, updateIncome } from "./api";
 import { IncomeFrequency } from "./income-frequency";
 
-export default function Form() {
+export default function IncomeForm() {
   const navigate = useNavigate();
 
   // Reads the income ID from the URL parameters.
@@ -79,6 +79,7 @@ export default function Form() {
             value={source}
             onChange={(e) => setSource(e.target.value)}
             placeholder="e.g. Salary"
+            minLength={2}
             required
           />
         </div>
@@ -91,6 +92,8 @@ export default function Form() {
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
             placeholder="e.g. 2500"
+            min="0.01"
+            step="0.01"
             required
           />
         </div>

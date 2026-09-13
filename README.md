@@ -343,7 +343,8 @@ Project documentation and assessment evidence can be found in the `docs/` folder
 
 - **API Documentation** - [OpenAPI YAML](docs/api/openapi.yaml)
 - **Designs** - Figma designs and UI design evidence
-- **Planning** - Jira boards, database design and project planning evidence
+- **Jira Project** - [Cubture Jira Board](https://monetpowell.atlassian.net/jira/software/projects/KAN/boards/2?filter=&groupBy=none)
+- **Planning** - Database design and project planning evidence
 - **Evidence** - Screenshots demonstrating key features and development work
 
 ## Future Improvements

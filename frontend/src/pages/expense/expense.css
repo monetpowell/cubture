@@ -1,36 +1,52 @@
-.expenses-page {
+.expense-page {
   padding: 50px 30px;
 }
 
-.expenses-header {
+.expense-header {
   text-align: center;
+
   margin-bottom: 20px;
 }
 
-.expenses-page h1 {
+.expense-page h1 {
   color: #111827;
+
   font-size: 32px;
+
   font-weight: 600;
+
   line-height: 1.2;
+
   margin: 0;
 }
 
-.expenses-header p {
+.expense-header p {
   color: #777;
+
   font-size: 1rem;
+
   margin-bottom: 30px;
 }
 
 .add-expense-button {
   display: block;
+
   width: fit-content;
+
   margin: 16px 0 0 0;
+
   background: #7c3aed;
+
   color: #ffffff;
+
   text-decoration: none;
+
   padding: 12px 20px;
+
   border-radius: 10px;
+
   font-size: 14px;
+
   font-weight: 600;
 }
 

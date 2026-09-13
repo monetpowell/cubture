@@ -54,36 +54,39 @@ export default function ChildcareForm() {
   }
 
   return (
-    <div className="childcare-form-header">
+    <div className="childcare-card">
       <h1>{id ? "Edit Childcare" : "Add Childcare"}</h1>
 
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Name</label>
-
+          <label htmlFor="name">Name</label>
           <input
+            id="name"
             value={name}
             onChange={(e) => setName(e.target.value)}
             placeholder="e.g. Nursery Fees"
+            minLength={2}
             required
           />
         </div>
 
         <div className="form-group">
-          <label>Amount</label>
-
+          <label htmlFor="amount">Amount</label>
           <input
+            id="amount"
             type="number"
             value={amount}
             onChange={(e) => setAmount(e.target.value)}
+            min="0.01"
+            step="0.01"
             required
           />
         </div>
 
         <div className="form-group">
-          <label>Date Paid</label>
-
+          <label htmlFor="datePaid">Date paid</label>
           <input
+            id="datePaid"
             type="date"
             value={datePaid}
             onChange={(e) => setDatePaid(e.target.value)}
@@ -92,9 +95,9 @@ export default function ChildcareForm() {
         </div>
 
         <div className="form-group">
-          <label>Frequency</label>
-
+          <label htmlFor="frequency">Frequency</label>
           <select
+            id="frequency"
             value={frequency}
             onChange={(e) => setFrequency(e.target.value as ChildcareFrequency)}
           >

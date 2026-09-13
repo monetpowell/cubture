@@ -28,6 +28,7 @@
 
 .form-group input:focus,
 .form-group select:focus {
+  outline: none;
   border-color: #6d3ef0;
 }
 

@@ -121,8 +121,10 @@ MYSQL_DATABASE=cubture
 MYSQL_USER=cubture
 MYSQL_PASSWORD=cubturepassword
 MYSQL_ROOT_PASSWORD=rootpassword
-SKIDDLE_API_KEY=5bcb8c1c80545b33d17e130f6b0b7855
+SKIDDLE_API_KEY=your-skiddle-api-key
 ```
+
+Ensure the `SKIDDLE_API_KEY` value contains a valid Skiddle API key before starting the application.
 
 The .env file is excluded from Git using .gitignore.
 
@@ -167,6 +169,7 @@ Cubture is made up of three main services managed through Docker Compose:
 
 - **Frontend:** React and TypeScript application
 - **Database:** MySQL database with data saved in a Docker volume between restarts
+- **Backend:** Spring Boot REST API
 
 The React frontend acts as the client and sends HTTP requests to the Spring Boot backend. The backend processes these requests, handles the application's business logic and database operations, and returns HTTP responses to the frontend. For activities, the backend also communicates with the Skiddle API to retrieve activity data.
 
@@ -192,7 +195,7 @@ The dashboard provides an overview of the family's finances for the selected mon
 - Total expenses
 - Total childcare costs
 - Remaining money
-- Month-on-month trends
+- Monthly trends
 - Monthly financial overview chart
 - Savings percentage
 - Amount saved
@@ -249,11 +252,11 @@ Users can add, view, edit and delete financial records.
 
 The dashboard uses these records to calculate the monthly financial summary.
 
-## API Integration
+## Third-Party API Integration
 
 Cubture integrates with the Skiddle API to retrieve family activities.
 
-The backend retrieves activity information and provides it to the React frontend.
+The backend retrieves activity information from Skiddle and provides it to the React frontend.
 
 Activities include information such as:
 
@@ -273,51 +276,17 @@ The activities page allows users to:
 
 The dashboard also uses the available activity budget to display affordable activities.
 
-## Local Development
+## API Documentation
 
-Docker is the recommended way to run the complete application because it starts the frontend, backend and database together.
+The Cubture backend provides a REST API for the application's financial and savings functionality. The API is documented using OpenAPI and Swagger UI.
 
-The frontend can also be run separately during development from the frontend directory:
+When the application is running, Swagger UI can be accessed at:
 
-```bash
-cd frontend
-npm install
-npm run dev
-```
+[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
 
-The backend can be run separately from the backend directory using Maven.
+The generated OpenAPI specification is also included in the repository:
 
-When running the applications outside Docker, a locally configured MySQL database and the appropriate local configuration are required.
-
-### Building the Frontend
-
-The frontend production build can be created using:
-
-```bash
-cd frontend
-npm run build
-```
-
-The production build is generated in:
-
-```
-frontend/dist
-```
-
-The Docker frontend image builds the React application and then serves the production files using Nginx.
-
-## Backend
-
-The backend is a Spring Boot REST API built using Maven. It uses:
-
-- Spring Data JPA for database access
-- Hibernate for ORM and schema management
-- Spring Validation for request validation
-- Spring Web for REST endpoints
-
-The backend is built using a multi-stage Docker build. Maven is used during the build stage and the resulting application JAR is run using a Java runtime image.
-
-The backend runs on port `8080`.
+`docs/api/openapi.yaml`
 
 ## Docker
 
@@ -339,13 +308,11 @@ Docker Compose also uses the MySQL service name when the backend connects to the
 
 ## Documentation
 
-Project documentation and assessment evidence can be found in the `docs/` folder:
-
+- **Project Overview** - [Jira Project Overview](https://monetpowell.atlassian.net/wiki/x/BQEc)
+- **Problem Statement** - [Jira Problem Statement](https://monetpowell.atlassian.net/wiki/x/4YAb)
+- **Domain Model** - [Jira Domain Model](https://monetpowell.atlassian.net/wiki/x/QoAd)
+- **Project Planning** - [Cubture Jira Board](https://monetpowell.atlassian.net/jira/software/projects/KAN/boards/2?filter=&groupBy=none)
 - **API Documentation** - [OpenAPI YAML](docs/api/openapi.yaml)
-- **Designs** - Figma designs and UI design evidence
-- **Jira Project** - [Cubture Jira Board](https://monetpowell.atlassian.net/jira/software/projects/KAN/boards/2?filter=&groupBy=none)
-- **Planning** - Database design and project planning evidence
-- **Evidence** - Screenshots demonstrating key features and development work
 
 ## Future Improvements
 
@@ -353,9 +320,12 @@ Potential future improvements include:
 
 - User authentication and individual family accounts
 - More advanced budgeting features
-- Additional activity filtering
-- More detailed financial reporting
+- More detailed reporting
 - Improved accessibility
 - More personalised activity recommendations
-- Further error handling and validation
+- Additional filtering
+- More comprehensive error handling and validation
 - Further responsive design improvements
+- Ability to export financial data to CSV
+- Expand the use of CSS variables/design tokens for commonly used colours, spacing, border radius and shadows to improve consistency across component styling and reduce repeated hardcoded values
+- Testing

@@ -25,11 +25,18 @@ export default function Dashboard() {
   const [selectedYear] = useState(today.getFullYear());
 
   const [summary, setSummary] = useState<DashboardSummary | null>(null);
+  const [error, setError] = useState("");
 
   useEffect(() => {
     async function fetchSummary() {
-      const data = await getDashboardSummary(selectedMonth, selectedYear);
-      setSummary(data);
+      try {
+        const data = await getDashboardSummary(selectedMonth, selectedYear);
+        setSummary(data);
+      } catch {
+        setError(
+          "Unable to load your dashboard. Please check your connection and try again.",
+        );
+      }
     }
 
     fetchSummary();
@@ -55,6 +62,14 @@ export default function Dashboard() {
       style: "currency",
       currency: "GBP",
     });
+  }
+
+  if (error) {
+    return (
+      <Layout>
+        <p className="dashboard-error">{error}</p>
+      </Layout>
+    );
   }
 
   if (!summary) {

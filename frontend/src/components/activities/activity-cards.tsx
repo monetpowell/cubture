@@ -9,15 +9,26 @@ export default function ActivityList() {
   const [activities, setActivities] = useState<Activity[]>([]);
   const [location, setLocation] = useState("");
   const [sortPrice, setSortPrice] = useState("");
+  const [error, setError] = useState("");
 
   useEffect(() => {
     async function fetchActivities() {
-      const data = await getActivities();
-      setActivities(data.results);
+      try {
+        const data = await getActivities();
+        setActivities(data.results);
+      } catch {
+        setError(
+          "Unable to load activities. Please check your connection and try again.",
+        );
+      }
     }
 
     fetchActivities();
   }, []);
+
+  if (error) {
+    return <p className="activity-error">{error}</p>;
+  }
 
   const filteredActivities = activities.filter((activity) => {
     return (

@@ -1,70 +1,48 @@
 .income-card h1 {
   color: #111827;
-
   font-size: 32px;
-
   font-weight: 600;
-
   line-height: 1.2;
-
   margin: 0;
 }
 
 .form-group {
   display: flex;
-
   flex-direction: column;
-
   margin-bottom: 20px;
 }
 
 .form-group label {
   margin-bottom: 8px;
-
   font-weight: 600;
-
   color: #3f3f46;
 }
 
 .form-group input,
 .form-group select {
   padding: 14px 16px;
-
   border: 1px solid #ddd;
-
   border-radius: 14px;
-
   font-size: 16px;
 }
 
 .form-group input:focus,
 .form-group select:focus {
   outline: none;
-
   border-color: #6d3ef0;
 }
 
 .submit-btn {
   width: 100%;
-
   padding: 16px;
-
   margin-top: 12px;
-
   border: none;
-
   border-radius: 16px;
-
   background: #6d3ef0;
-
   color: white;
-
   font-size: 17px;
-
   font-weight: 600;
-
   cursor: pointer;
-
   transition: 0.2s;
 }
 

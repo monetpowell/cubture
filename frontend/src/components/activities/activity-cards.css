@@ -125,6 +125,11 @@
   box-shadow: 0 0 0 3px rgba(91, 45, 189, 0.12);
 }
 
+.activity-error {
+  text-align: center;
+  padding: 32px;
+}
+
 @media (max-width: 1000px) {
   .activity-list {
     grid-template-columns: repeat(2, 1fr);

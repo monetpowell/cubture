@@ -9,16 +9,30 @@ public class DashboardSummary {
     private BigDecimal totalChildcare;
     private BigDecimal moneyLeft;
 
+    private double incomeTrend;
+    private double expenseTrend;
+    private double childcareTrend;
+    private double remainingTrend;
+
     public DashboardSummary(
             BigDecimal totalIncome,
             BigDecimal totalExpenses,
             BigDecimal totalChildcare,
-            BigDecimal moneyLeft) {
+            BigDecimal moneyLeft,
+            double incomeTrend,
+            double expenseTrend,
+            double childcareTrend,
+            double remainingTrend) {
 
         this.totalIncome = totalIncome;
         this.totalExpenses = totalExpenses;
         this.totalChildcare = totalChildcare;
         this.moneyLeft = moneyLeft;
+
+        this.incomeTrend = incomeTrend;
+        this.expenseTrend = expenseTrend;
+        this.childcareTrend = childcareTrend;
+        this.remainingTrend = remainingTrend;
     }
 
     public BigDecimal getTotalIncome() {
@@ -35,5 +49,21 @@ public class DashboardSummary {
 
     public BigDecimal getMoneyLeft() {
         return moneyLeft;
+    }
+
+    public double getIncomeTrend() {
+        return incomeTrend;
+    }
+
+    public double getExpenseTrend() {
+        return expenseTrend;
+    }
+
+    public double getChildcareTrend() {
+        return childcareTrend;
+    }
+
+    public double getRemainingTrend() {
+        return remainingTrend;
     }
 }

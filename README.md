@@ -148,6 +148,8 @@ spring.jpa.hibernate.ddl-auto=update
 
 The application also uses a `data.sql` file to provide initial seed data.
 
+The example seed data represents a household of three: two adults and one child, and is used to demonstrate the application's financial planning features.
+
 The following configuration ensures that the seed data is loaded after Hibernate has created or updated the database schema:
 
 ```properties
@@ -282,7 +284,7 @@ The Cubture backend provides a REST API for the application's financial and savi
 
 When the application is running, Swagger UI can be accessed at:
 
-[http://localhost:8080/swagger-ui/index.html](http://localhost:8080/swagger-ui/index.html)
+[Swagger UI](http://localhost:8080/swagger-ui/index.html)
 
 The generated OpenAPI specification is also included in the repository:
 
@@ -328,4 +330,4 @@ Potential future improvements include:
 - Further responsive design improvements
 - Ability to export financial data to CSV
 - Expand the use of CSS variables/design tokens for commonly used colours, spacing, border radius and shadows to improve consistency across component styling and reduce repeated hardcoded values
-- Testing
+- Add unit and end-to-end (E2E) testing

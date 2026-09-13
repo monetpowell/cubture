@@ -1,0 +1,53 @@
+.savings-slider {
+  background: #ffffff;
+  border: 1px solid #f0f0f4;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
+
+.savings-slider h2 {
+  margin: 0 0 16px;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.savings-slider input {
+  width: 100%;
+  margin: 22px 0 16px;
+  accent-color: #16a34a;
+}
+
+.savings-percent {
+  font-size: 30px;
+  font-weight: 600;
+  color: #111827;
+  line-height: 1;
+}
+
+.saved-text {
+  margin: 0;
+  color: #47494e;
+  font-size: 14px;
+  text-align: center;
+}
+
+.activities-text {
+  margin: 8px 0 0;
+  color: #47494e;
+  font-style: italic;
+  font-size: 14px;
+  text-align: center;
+}
+
+@media (max-width: 1200px) {
+  .savings-slider {
+    min-height: 240px;
+  }
+}

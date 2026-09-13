@@ -1,0 +1,17 @@
+.dashboard-chart {
+  background: #ffffff;
+  border: 1px solid #f0f0f4;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 4px 16px rgba(15, 23, 42, 0.06);
+  box-sizing: border-box;
+}
+
+.dashboard-chart h2 {
+  margin: 0 0 12px;
+  text-align: center;
+  color: #111827;
+  font-size: 18px;
+  font-weight: 600;
+  line-height: 1.2;
+}

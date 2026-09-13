@@ -1,0 +1,718 @@
+openapi: 3.1.0
+info:
+  title: OpenAPI definition
+  version: v0
+servers:
+- url: http://localhost:8080
+  description: Generated server url
+tags:
+- name: Savings
+  description: Manage family savings goals
+- name: Expenses
+  description: Manage family expenses
+- name: Activities
+  description: Retrieve family activities
+- name: Childcare
+  description: Manage family childcare costs
+- name: Dashboard
+  description: Retrieve the family financial dashboard summary
+- name: Income
+  description: Manage family income records
+paths:
+  /api/savings/{id}:
+    get:
+      tags:
+      - Savings
+      summary: Get a savings goal
+      description: Retrieves a savings goal using its unique ID.
+      operationId: getSavings
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the savings goal
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "404":
+          description: Savings goal not found
+          content: {}
+        "200":
+          description: Savings goal retrieved successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Savings"
+        "500":
+          description: Internal server error
+    put:
+      tags:
+      - Savings
+      summary: Update a savings goal
+      description: Updates an existing savings goal using its unique ID.
+      operationId: updateSavings
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the savings goal
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Savings"
+        required: true
+      responses:
+        "404":
+          description: Savings goal not found
+          content: {}
+        "200":
+          description: Savings goal updated successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Savings"
+        "500":
+          description: Internal server error
+    delete:
+      tags:
+      - Savings
+      summary: Delete a savings goal
+      description: Deletes an existing savings goal using its unique ID.
+      operationId: deleteSavings
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the savings goal
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "404":
+          description: Savings goal not found
+          content: {}
+        "200":
+          description: Savings goal deleted successfully
+        "500":
+          description: Internal server error
+  /api/income/{id}:
+    get:
+      tags:
+      - Income
+      summary: Get an income record
+      description: Retrieves an income record using its unique ID.
+      operationId: getIncome
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the income record
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "404":
+          description: Income record not found
+          content: {}
+        "200":
+          description: Income record retrieved successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Income"
+        "500":
+          description: Internal server error
+    put:
+      tags:
+      - Income
+      summary: Update an income record
+      description: Updates an existing income record using its unique ID.
+      operationId: updateIncome
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the income record
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Income"
+        required: true
+      responses:
+        "404":
+          description: Income record not found
+          content: {}
+        "200":
+          description: Income record updated successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Income"
+        "500":
+          description: Internal server error
+    delete:
+      tags:
+      - Income
+      summary: Delete an income record
+      description: Deletes an existing income record using its unique ID.
+      operationId: deleteIncome
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the income record
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "404":
+          description: Income record not found
+          content: {}
+        "200":
+          description: Income record deleted successfully
+        "500":
+          description: Internal server error
+  /api/expenses/{id}:
+    get:
+      tags:
+      - Expenses
+      summary: Get an expense
+      description: Retrieves an expense using its unique ID.
+      operationId: getExpense
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the expense
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "404":
+          description: Expense not found
+          content: {}
+        "200":
+          description: Expense retrieved successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Expense"
+        "500":
+          description: Internal server error
+    put:
+      tags:
+      - Expenses
+      summary: Update an expense
+      description: Updates an existing expense using its unique ID.
+      operationId: updateExpense
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the expense
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Expense"
+        required: true
+      responses:
+        "404":
+          description: Expense not found
+          content: {}
+        "200":
+          description: Expense updated successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Expense"
+        "500":
+          description: Internal server error
+    delete:
+      tags:
+      - Expenses
+      summary: Delete an expense
+      description: Deletes an existing expense using its unique ID
+      operationId: deleteExpense
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the expense
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "404":
+          description: Expense not found
+          content: {}
+        "200":
+          description: Expense deleted successfully
+        "500":
+          description: Internal server error
+  /api/childcare/{id}:
+    get:
+      tags:
+      - Childcare
+      summary: Get a childcare record
+      description: Retrieves a childcare record using its unique ID.
+      operationId: getChildcare
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the childcare record
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "404":
+          description: Childcare record not found
+          content: {}
+        "200":
+          description: Childcare record retrieved successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Childcare"
+        "500":
+          description: Internal server error
+    put:
+      tags:
+      - Childcare
+      summary: Update a childcare record
+      description: Updates an existing childcare record using its unique ID.
+      operationId: updateChildcare
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the childcare record
+        required: true
+        schema:
+          type: string
+          format: uuid
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Childcare"
+        required: true
+      responses:
+        "404":
+          description: Childcare record not found
+          content: {}
+        "200":
+          description: Childcare record updated successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Childcare"
+        "500":
+          description: Internal server error
+    delete:
+      tags:
+      - Childcare
+      summary: Delete a childcare record
+      description: Deletes an existing childcare record using its unique ID.
+      operationId: deleteChildcare
+      parameters:
+      - name: id
+        in: path
+        description: Unique ID of the childcare record
+        required: true
+        schema:
+          type: string
+          format: uuid
+      responses:
+        "404":
+          description: Childcare record not found
+          content: {}
+        "200":
+          description: Childcare record deleted successfully
+        "500":
+          description: Internal server error
+  /api/savings:
+    get:
+      tags:
+      - Savings
+      summary: Get all savings goals
+      description: Retrieves all savings goals.
+      operationId: getAllSavings
+      responses:
+        "404":
+          description: Not Found
+        "200":
+          description: Savings goals retrieved successfully
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Savings"
+        "500":
+          description: Internal server error
+    post:
+      tags:
+      - Savings
+      summary: Create a savings goal
+      description: Creates a new savings goal.
+      operationId: createSavings
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Savings"
+        required: true
+      responses:
+        "404":
+          description: Not Found
+        "201":
+          description: Savings goal created successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Savings"
+        "500":
+          description: Internal server error
+  /api/income:
+    get:
+      tags:
+      - Income
+      summary: Get all income records
+      description: "Retrieves income records, optionally filtered by month and year."
+      operationId: getAllIncome
+      parameters:
+      - name: month
+        in: query
+        description: Month to filter income records by
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: year
+        in: query
+        description: Year to filter income records by
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "404":
+          description: Not Found
+        "200":
+          description: Income records retrieved successfully
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Income"
+        "500":
+          description: Internal server error
+    post:
+      tags:
+      - Income
+      summary: Create an income record
+      description: Creates a new income record.
+      operationId: createIncome
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Income"
+        required: true
+      responses:
+        "404":
+          description: Not Found
+        "201":
+          description: Income record created successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Income"
+        "500":
+          description: Internal server error
+  /api/expenses:
+    get:
+      tags:
+      - Expenses
+      summary: Get all expenses
+      description: "Retrieves expenses, optionally filtered by month and year"
+      operationId: getExpenses
+      parameters:
+      - name: month
+        in: query
+        description: Month to filter expenses by
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: year
+        in: query
+        description: Year to filter expenses by
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "404":
+          description: Not Found
+        "200":
+          description: Expenses retrieved successfully
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Expense"
+        "500":
+          description: Internal server error
+    post:
+      tags:
+      - Expenses
+      summary: Create an expense
+      description: Creates a new expense.
+      operationId: createExpense
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Expense"
+        required: true
+      responses:
+        "404":
+          description: Not Found
+        "201":
+          description: Expense created successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Expense"
+        "500":
+          description: Internal server error
+  /api/childcare:
+    get:
+      tags:
+      - Childcare
+      summary: Get childcare records
+      description: Retrieves childcare records for a specific month and year
+      operationId: getChildcare_1
+      parameters:
+      - name: month
+        in: query
+        description: Month to retrieve childcare records for
+        required: true
+        schema:
+          type: integer
+          format: int32
+      - name: year
+        in: query
+        description: Year used to retrieve childcare records
+        required: true
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "404":
+          description: Not Found
+        "200":
+          description: Childcare records retrieved successfully
+          content:
+            '*/*':
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Childcare"
+        "500":
+          description: Internal server error
+    post:
+      tags:
+      - Childcare
+      summary: Create a childcare record
+      description: Creates a new childcare record.
+      operationId: createChildcare
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Childcare"
+        required: true
+      responses:
+        "404":
+          description: Not Found
+        "201":
+          description: Childcare record created successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/Childcare"
+        "500":
+          description: Internal server error
+  /dashboard/summary:
+    get:
+      tags:
+      - Dashboard
+      summary: Get dashboard summary
+      description: "Retrieves the financial dashboard summary for a specific month\
+        \ and year. If no month or year is provided, the current month and year are\
+        \ used."
+      operationId: getSummary
+      parameters:
+      - name: month
+        in: query
+        description: Month to retrieve the dashboard summary for
+        required: false
+        schema:
+          type: integer
+          format: int32
+      - name: year
+        in: query
+        description: Year to retrieve the dashboard summary for
+        required: false
+        schema:
+          type: integer
+          format: int32
+      responses:
+        "404":
+          description: Not Found
+        "200":
+          description: Dashboard summary retrieved successfully
+          content:
+            '*/*':
+              schema:
+                $ref: "#/components/schemas/DashboardSummary"
+        "500":
+          description: Internal server error
+  /api/activities:
+    get:
+      tags:
+      - Activities
+      summary: Get family activities
+      description: Retrieves family activities from the Skiddle API.
+      operationId: getActivities
+      responses:
+        "404":
+          description: Not Found
+        "200":
+          description: Activities retrieved successfully
+          content:
+            '*/*':
+              schema:
+                type: string
+        "500":
+          description: Internal server error
+components:
+  schemas:
+    Savings:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        goalName:
+          type: string
+        savedAmount:
+          type: number
+        targetAmount:
+          type: number
+        targetDate:
+          type: string
+          format: date
+    Income:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        source:
+          type: string
+        amount:
+          type: number
+        dateReceived:
+          type: string
+          format: date
+        frequency:
+          type: string
+          enum:
+          - WEEKLY
+          - FORTNIGHTLY
+          - MONTHLY
+          - ANNUALLY
+          - ONE_OFF
+    Expense:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        amount:
+          type: number
+        datePaid:
+          type: string
+          format: date
+        frequency:
+          type: string
+          enum:
+          - WEEKLY
+          - FORTNIGHTLY
+          - MONTHLY
+          - ANNUALLY
+          - ONE_OFF
+    Childcare:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        name:
+          type: string
+        amount:
+          type: number
+        datePaid:
+          type: string
+          format: date
+        frequency:
+          type: string
+          enum:
+          - WEEKLY
+          - FORTNIGHTLY
+          - MONTHLY
+          - ANNUALLY
+          - ONE_OFF
+    DashboardSummary:
+      type: object
+      properties:
+        totalIncome:
+          type: number
+        totalExpenses:
+          type: number
+        totalChildcare:
+          type: number
+        moneyLeft:
+          type: number
+        incomeTrend:
+          type: number
+          format: double
+        expenseTrend:
+          type: number
+          format: double
+        childcareTrend:
+          type: number
+          format: double
+        remainingTrend:
+          type: number
+          format: double

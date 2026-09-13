@@ -74,7 +74,7 @@ export default function IncomeList() {
                     Edit
                   </button>
 
-                  <button onClick={() => handleDelete(income.id)}>
+                  <button onClick={() => handleDelete(income.id!)}>
                     Delete
                   </button>
                 </td>

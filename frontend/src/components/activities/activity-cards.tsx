@@ -1,4 +1,5 @@
-import "./activity-list.css";
+import "./activity-cards.css";
+
 import { useEffect, useState } from "react";
 
 import type { Activity } from "./activity";
@@ -20,8 +21,9 @@ export default function ActivityList() {
 
   const filteredActivities = activities.filter((activity) => {
     return (
-      location === "" ||
-      activity.venue.town.toLowerCase().includes(location.toLowerCase())
+      activity.ticketpricing !== null &&
+      (location === "" ||
+        activity.venue.town.toLowerCase().includes(location.toLowerCase()))
     );
   });
 
@@ -29,39 +31,34 @@ export default function ActivityList() {
 
   if (sortPrice === "LOW_HIGH") {
     sortedActivities.sort(
-      (a, b) => a.ticketpricing.minPrice - b.ticketpricing.minPrice,
+      (a, b) => a.ticketpricing!.minPrice - b.ticketpricing!.minPrice,
     );
   }
 
   if (sortPrice === "HIGH_LOW") {
     sortedActivities.sort(
-      (a, b) => b.ticketpricing.minPrice - a.ticketpricing.minPrice,
+      (a, b) => b.ticketpricing!.minPrice - a.ticketpricing!.minPrice,
     );
   }
 
   return (
-    <div className="activities-page">
-      <div className="activities-header">
-        <h1>Discover Activities</h1>
-        <p>Affordable family activities across the UK</p>
+    <>
+      <div className="activity-filters">
+        <input
+          type="text"
+          placeholder="Search location..."
+          value={location}
+          onChange={(e) => setLocation(e.target.value)}
+        />
 
-        <div className="activity-filters">
-          <input
-            type="text"
-            placeholder="Search location..."
-            value={location}
-            onChange={(e) => setLocation(e.target.value)}
-          />
-
-          <select
-            value={sortPrice}
-            onChange={(e) => setSortPrice(e.target.value)}
-          >
-            <option value="">Sort by Price</option>
-            <option value="LOW_HIGH">Low to High</option>
-            <option value="HIGH_LOW">High to Low</option>
-          </select>
-        </div>
+        <select
+          value={sortPrice}
+          onChange={(e) => setSortPrice(e.target.value)}
+        >
+          <option value="">Sort by Price</option>
+          <option value="LOW_HIGH">Low to High</option>
+          <option value="HIGH_LOW">High to Low</option>
+        </select>
       </div>
 
       <div className="activity-list">
@@ -91,7 +88,7 @@ export default function ActivityList() {
                 </p>
 
                 <p className="activity-info">
-                  💷 From £{activity.ticketpricing.minPrice.toFixed(2)}
+                  💷 From £{activity.ticketpricing!.minPrice.toFixed(2)}
                 </p>
               </div>
 
@@ -107,6 +104,6 @@ export default function ActivityList() {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }

@@ -14,7 +14,7 @@ export type Activity = {
   ticketpricing: {
     minPrice: number;
     maxPrice: number;
-  };
+  } | null;
 };
 
 export type ActivityResponse = {

@@ -5,10 +5,10 @@ import Expenses from "./pages/expenses/expenses";
 import Savings from "./pages/savings.tsx/savings";
 import Childcare from "./pages/childcare/childcare";
 import Activities from "./pages/activities/activities";
-import IncomeForm from "./pages/income/income-form";
-import ExpensesForm from "./pages/expenses/expenses-form";
-import ChildcareFormPage from "./pages/childcare/childcare-form";
-import SavingsFormPage from "./pages/savings.tsx/savings-form";
+import IncomeForm from "./pages/income/income-form-page";
+import ExpensesForm from "./pages/expenses/expenses-form-page";
+import ChildcareFormPage from "./pages/childcare/childcare-form-page";
+import SavingsFormPage from "./pages/savings.tsx/savings-form-page";
 
 function App() {
   return (

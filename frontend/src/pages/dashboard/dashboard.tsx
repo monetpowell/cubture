@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 import Layout from "../../components/layout/layout";
 import SummaryCard from "../../components/summary-card/summary-card";
 import MonthSelector from "../../components/month-selector/month-selector";
+import DashboardChart from "../../components/dashboard-chart/dashboard-chart";
+import SavingsSlider from "../../components/savings-slider/savings-slider";
 
 import moneyIcon from "../../assets/money.png";
 import creditCardIcon from "../../assets/credit-card.png";
@@ -14,6 +16,7 @@ import piggyBankIcon from "../../assets/piggy-bank.png";
 
 import { getDashboardSummary } from "./api";
 import type { DashboardSummary } from "./dashboard-summary";
+import DashboardActivities from "../../components/dashboard-activities/dashboard-activities";
 
 export default function Dashboard() {
   const today = new Date();
@@ -66,18 +69,15 @@ export default function Dashboard() {
     <Layout>
       <div className="dashboard-content">
         <h1>Hello Tanya 👋</h1>
-
+        <p>
+          Here's your overview for {monthNames[selectedMonth - 1]}{" "}
+          {selectedYear}
+        </p>
         <MonthSelector
           selectedMonth={selectedMonth}
           selectedYear={selectedYear}
           onMonthChange={setSelectedMonth}
         />
-
-        <p>
-          Here's your overview for {monthNames[selectedMonth - 1]}{" "}
-          {selectedYear}
-        </p>
-
         <div className="summary-cards">
           <Link to="/income" className="summary-link">
             <SummaryCard
@@ -85,6 +85,7 @@ export default function Dashboard() {
               title="Income"
               subtitle="This month"
               value={formatMoney(summary.totalIncome)}
+              trend={summary.incomeTrend}
             />
           </Link>
 
@@ -94,6 +95,7 @@ export default function Dashboard() {
               title="Expenses"
               subtitle="This month"
               value={formatMoney(summary.totalExpenses)}
+              trend={summary.expenseTrend}
             />
           </Link>
 
@@ -103,19 +105,38 @@ export default function Dashboard() {
               title="Childcare"
               subtitle="This month"
               value={formatMoney(summary.totalChildcare)}
+              trend={summary.childcareTrend}
             />
           </Link>
 
           <Link to="/savings" className="summary-link">
             <SummaryCard
-              icon={<img src={piggyBankIcon} alt="Money Left" />}
+              icon={<img src={piggyBankIcon} alt="Remaining" />}
               title="Remaining"
               subtitle="Available to use"
               value={formatMoney(summary.moneyLeft)}
               highlight
+              trend={summary.remainingTrend}
             />
           </Link>
         </div>
+
+        <div className="dashboard-middle">
+          <DashboardChart
+            income={summary.totalIncome}
+            expenses={summary.totalExpenses}
+            childcare={summary.totalChildcare}
+            remaining={summary.moneyLeft}
+          />
+
+          <SavingsSlider
+            key={`${selectedMonth}-${selectedYear}`}
+            income={summary.totalIncome}
+            remaining={summary.moneyLeft}
+          />
+        </div>
+
+        <DashboardActivities budget={summary.moneyLeft} />
       </div>
     </Layout>
   );

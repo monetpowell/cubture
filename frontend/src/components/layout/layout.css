@@ -10,7 +10,7 @@
 }
 
 .logo {
-  width: 220px;
+  width: 240px;
   height: auto;
   display: block;
   margin: 0 auto 40px;
@@ -29,10 +29,6 @@
   border-radius: 14px;
   font-weight: 600;
 }
-
-/* .sidebar a:hover {
-  background: #f3efff;
-} */
 
 .sidebar a.active {
   background: #f3efff;

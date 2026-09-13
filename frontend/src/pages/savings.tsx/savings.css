@@ -1,0 +1,39 @@
+.savings-page {
+  padding: 50px 30px;
+}
+
+.savings-header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.savings-page h1 {
+  margin: 0;
+  color: #111827;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.savings-header p {
+  color: #6b7280;
+  font-size: 1rem;
+  margin-bottom: 30px;
+}
+
+.add-savings-button {
+  display: block;
+  width: fit-content;
+  margin: 16px 0 0 0;
+  background: #7c3aed;
+  color: #ffffff;
+  text-decoration: none;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.add-savings-button:hover {
+  background: #6d28d9;
+}

@@ -1,8 +1,9 @@
 .expense-card h1 {
-  font-size: 40px;
-  font-weight: 550;
-  color: #5b21b6;
-  margin-bottom: 30px;
+  color: #111827;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
 }
 
 .form-group {

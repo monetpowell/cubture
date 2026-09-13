@@ -54,7 +54,7 @@ export default function ChildcareForm() {
   }
 
   return (
-    <div className="childcare-header">
+    <div className="childcare-form-header">
       <h1>{id ? "Edit Childcare" : "Add Childcare"}</h1>
 
       <form onSubmit={handleSubmit}>

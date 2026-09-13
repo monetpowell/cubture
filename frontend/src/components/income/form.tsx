@@ -121,7 +121,7 @@ export default function Form() {
           </select>
         </div>
 
-        <button type="submit" className="button">
+        <button type="submit" className="submit-btn">
           {id ? "Update Income" : "Save Income"}
         </button>
       </form>

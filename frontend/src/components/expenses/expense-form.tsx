@@ -105,7 +105,7 @@ export default function ExpenseForm() {
           </select>
         </div>
 
-        <button type="submit" className="button">
+        <button type="submit" className="submit-btn">
           Save Expense
         </button>
       </form>

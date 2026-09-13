@@ -2,19 +2,20 @@
   padding: 40px 30px;
 }
 
-.childcare-header {
+.childcare-form-header {
   text-align: center;
   margin-bottom: 35px;
 }
 
-.childcare-header h1 {
-  font-size: 40px;
-  color: #5b21b6;
-  margin-bottom: 30px;
-  font-weight: 550;
+.childcare-form-header h1 {
+  color: #111827;
+  font-size: 32px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin: 0;
 }
 
-.childcare-header p {
+.childcare-form-header p {
   color: #777;
   font-size: 1rem;
   margin-bottom: 30px;
@@ -74,17 +75,6 @@
 .childcare-table td:last-child a {
   display: inline-block;
   margin-right: 10px;
-}
-
-.childcare-table button {
-  border: none;
-  background: #7c3aed;
-  color: white;
-  padding: 8px 16px;
-  border-radius: 10px;
-  font-size: 14px;
-  font-weight: 600;
-  cursor: pointer;
 }
 
 .childcare-table button:hover {

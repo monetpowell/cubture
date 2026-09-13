@@ -1,6 +1,12 @@
 # Node
 node_modules/
 
+# Environment variables
+.env
+
+# Local properties
+local.properties
+
 # Build output
 dist/
 .vite/

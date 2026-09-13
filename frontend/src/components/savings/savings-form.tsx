@@ -55,42 +55,47 @@ export default function SavingsForm() {
 
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Goal Name</label>
-
+          <label htmlFor="goalName">Goal Name</label>
           <input
+            id="goalName"
             value={goalName}
             onChange={(e) => setGoalName(e.target.value)}
             placeholder="e.g. Family Holiday"
+            minLength={2}
             required
           />
         </div>
 
         <div className="form-group">
-          <label>Saved Amount (£)</label>
-
+          <label htmlFor="savedAmount">Saved Amount (£)</label>
           <input
+            id="savedAmount"
             type="number"
             value={savedAmount}
             onChange={(e) => setSavedAmount(e.target.value)}
+            min="0"
+            step="0.01"
             required
           />
         </div>
 
         <div className="form-group">
-          <label>Target Amount (£)</label>
-
+          <label htmlFor="targetAmount">Target Amount (£)</label>
           <input
+            id="targetAmount"
             type="number"
             value={targetAmount}
             onChange={(e) => setTargetAmount(e.target.value)}
+            min="0.01"
+            step="0.01"
             required
           />
         </div>
 
         <div className="form-group">
-          <label>Target Date</label>
-
+          <label htmlFor="targetDate">Target Date</label>
           <input
+            id="targetDate"
             type="date"
             value={targetDate}
             onChange={(e) => setTargetDate(e.target.value)}

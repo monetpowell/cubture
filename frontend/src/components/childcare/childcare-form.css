@@ -1,13 +1,4 @@
-.childcare-page {
-  padding: 40px 30px;
-}
-
-.childcare-form-header {
-  text-align: center;
-  margin-bottom: 35px;
-}
-
-.childcare-form-header h1 {
+.childcare-card h1 {
   color: #111827;
   font-size: 32px;
   font-weight: 600;
@@ -15,68 +6,46 @@
   margin: 0;
 }
 
-.childcare-form-header p {
-  color: #777;
-  font-size: 1rem;
-  margin-bottom: 30px;
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
 }
 
-.add-button {
-  display: inline-block;
-  background: #7c3aed;
-  color: white;
-  text-decoration: none;
-  padding: 16px 28px;
-  border-radius: 14px;
-  font-size: 18px;
+.form-group label {
+  margin-bottom: 8px;
   font-weight: 600;
-  margin-bottom: 35px;
+  color: #3f3f46;
 }
 
-.add-button:hover {
-  background: #6d28d9;
+.form-group input,
+.form-group select {
+  padding: 14px 16px;
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  font-size: 16px;
 }
 
-.childcare-table {
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: #6d3ef0;
+}
+
+.submit-btn {
   width: 100%;
-  max-width: 980px;
-  margin: 0 auto;
-  border-collapse: collapse;
-  background: white;
-  border-radius: 18px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  margin-top: 12px;
+  border: none;
+  border-radius: 16px;
+  background: #6d3ef0;
+  color: white;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.childcare-table th {
-  background: #f3efff;
-  color: #5b21b6;
-  padding: 18px;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.childcare-table td {
-  padding: 18px;
-  text-align: center;
-  color: #666;
-  border-top: 1px solid #f0f0f0;
-}
-
-.childcare-table tr:hover {
-  background: #faf8ff;
-}
-
-/* Actions column */
-.childcare-table td:last-child {
-  white-space: nowrap;
-}
-
-.childcare-table td:last-child a {
-  display: inline-block;
-  margin-right: 10px;
-}
-
-.childcare-table button:hover {
-  background: #6d28d9;
+.submit-btn:hover {
+  background: #5b2ee2;
 }
